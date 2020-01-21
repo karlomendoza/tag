@@ -12,8 +12,9 @@ public class CFDI {
     private String selloCFDI;
     private Date fechaTimbrado;
     private String qrCode;
+    private String invoiceId;
 
-    public CFDI(String cadenaOriginalSAT, String noCertificadoSAT, String status, String selloSAT, String selloCFDI, Date fechaTimbrado, String qrCode) {
+    public CFDI(String cadenaOriginalSAT, String noCertificadoSAT, String status, String selloSAT, String selloCFDI, Date fechaTimbrado, String qrCode, String invoiceId) {
         this.cadenaOriginalSAT = cadenaOriginalSAT;
         this.noCertificadoSAT = noCertificadoSAT;
         this.status = status;
@@ -21,6 +22,7 @@ public class CFDI {
         this.selloCFDI = selloCFDI;
         this.fechaTimbrado = fechaTimbrado;
         this.qrCode = qrCode;
+        this.invoiceId = invoiceId;
     }
 
     public String getCadenaOriginalSAT() {
@@ -77,5 +79,13 @@ public class CFDI {
 
     public void setQrCode(String qrCode) {
         this.qrCode = qrCode;
+    }
+
+    public String getInvoiceId() {
+        return invoiceId;
+    }
+
+    public void setInvoiceId(String invoiceId) {
+        this.invoiceId = invoiceId;
     }
 }
