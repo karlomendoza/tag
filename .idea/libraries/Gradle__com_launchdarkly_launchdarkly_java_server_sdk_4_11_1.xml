@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.launchdarkly:launchdarkly-java-server-sdk:4.11.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.launchdarkly/launchdarkly-java-server-sdk/4.11.1/14a9f89846bb72883da03ef30c6fc53945e000fc/launchdarkly-java-server-sdk-4.11.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.launchdarkly/launchdarkly-java-server-sdk/4.11.1/74559aa547a7fab594b19725e92f2878590294d6/launchdarkly-java-server-sdk-4.11.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
