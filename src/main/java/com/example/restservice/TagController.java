@@ -18,7 +18,7 @@ public class TagController {
 
 
 	@GetMapping("/tag")
-	public CFDI tag(@RequestParam(value = "invoiceId") String invoiceId) throws IOException {
+	public CFDI tag(@RequestParam(value = "cfdiId") String cfdiId) throws IOException {
 
 
 		LDClient ldClient = new LDClient("sdk-d3e4544e-0461-4340-86a2-77d6f70fbc06");
@@ -51,7 +51,7 @@ public class TagController {
 					selloSAT,
 					selloCFDI,
 					new Date(),
-					qrCode, invoiceId);
+					qrCode, cfdiId);
 		}
 
 	}

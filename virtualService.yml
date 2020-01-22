@@ -1,0 +1,32 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: cfdi
+  namespace: gloo-system
+spec:
+  virtualHost:
+    domains:
+      - '*'
+    routes:
+      - matchers:
+         - queryParameters:
+            - name: invoiceId
+           prefix: /
+        routeAction:
+          single:
+            upstream:
+              name: demo-invoice-9090
+              namespace: gloo-system
+        options:
+          autoHostRewrite: true
+      - matchers:
+         - queryParameters:
+            - name: cfdiId
+           prefix: /
+        routeAction:
+          single:
+            upstream:
+              name: demo-cfdi-8080
+              namespace: gloo-system
+        options:
+          autoHostRewrite: true
