@@ -14,6 +14,7 @@ repositories {
 
 ext {
 	lombokVersion = '1.18.6'
+	springfoxSwaggerVersion = '2.9.2'
 }
 
 dependencies {
@@ -23,6 +24,9 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+
+    compile("io.springfox:springfox-swagger2:${springfoxSwaggerVersion}")
+    compile("io.springfox:springfox-swagger-ui:${springfoxSwaggerVersion}")
 
 	compileOnly("org.projectlombok:lombok:${lombokVersion}")
 	testCompileOnly("org.projectlombok:lombok:${lombokVersion}")

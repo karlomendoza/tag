@@ -3,6 +3,9 @@ package com.example.restservice;
 import com.example.restservice.services.CfdiService;
 import com.launchdarkly.client.LDClientInterface;
 import com.launchdarkly.client.LDUser;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,6 +19,7 @@ import java.util.Arrays;
 
 @Slf4j
 @RestController
+// Swagger URL will be at: <proxy url>/v2/api-docs
 public class TagController {
 
 	private final CfdiService cfdiService;
@@ -75,10 +79,21 @@ public class TagController {
 
 	}*/
 
+	@ApiOperation(
+			value = "Provides mexican government stamp on invoices.",
+			response = CFDI.class,
+			produces = "application/json",
+			consumes = "application/json"
+	)
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Internal Server Error")
+	})
 	@PostMapping("/tag")
 	public ResponseEntity<CFDI> reportInvoiceToGovernment(@RequestBody Invoice invoice) throws IOException {
 
-		//LDClient ldClient = new LDClient("sdk-d3e4544e-0461-4340-86a2-77d6f70fbc06");
 		LDUser user = getLdUser();
 
 		boolean productionEnabled = ldClient.boolVariation(
