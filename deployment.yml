@@ -4,7 +4,7 @@ metadata:
   labels:
     app: cfdi
   name: cfdi
-  namespace: demo
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -16,7 +16,7 @@ spec:
         app: cfdi
     spec:
       containers:
-      - image: karlomendozaarmory/digital-cfdi:3
+      - image: karlomendozaarmory/digital-cfdi:5
         name: cfdi
         ports:
         - containerPort: 8080
@@ -26,7 +26,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: cfdi
-  namespace: demo
+  namespace: default
   labels:
     service: cfdi
 spec:

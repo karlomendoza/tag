@@ -3,6 +3,7 @@ package com.example.restservice;
 import com.example.restservice.services.CfdiService;
 import com.launchdarkly.client.LDClientInterface;
 import com.launchdarkly.client.LDUser;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.Arrays;
 
-
+@Slf4j
 @RestController
 public class TagController {
 
@@ -81,10 +82,12 @@ public class TagController {
 		LDUser user = getLdUser();
 
 		boolean productionEnabled = ldClient.boolVariation(
-				"test-1",
+				"cfdi-stamping",
 				user,
 				false
 		);
+
+		log.info(String.format("cfdi-stamping flag contains: %b", productionEnabled));
 		CFDI result;
 		if (productionEnabled) {
 			result = cfdiService.stampInvoice(invoice);

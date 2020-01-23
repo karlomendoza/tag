@@ -30,6 +30,10 @@ dependencies {
 	testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 }
 
+bootJar {
+	mainClassName = 'com.example.restservice.RestServiceApplication'
+}
+
 test {
 	useJUnitPlatform()
 }
