@@ -16,7 +16,7 @@ spec:
         app: cfdi
     spec:
       containers:
-      - image: karlomendozaarmory/digital-cfdi:5
+      - image: karlomendozaarmory/digital-cfdi:6
         name: cfdi
         ports:
         - containerPort: 8080
